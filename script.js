@@ -27,7 +27,7 @@ function lodingAnimation(){
       tl.to("#loader", {
         opacity: 0,
         duration: 0.2,
-        delay: 4,
+        delay: 0,
       });
       tl.from("#page1",{
           delay:0.2,
@@ -39,6 +39,28 @@ function lodingAnimation(){
       tl.to("#loader",{
           display:"none"
       })
+      tl.from("#nav",{
+        opacity:0
+      })
+      tl.from("#hero1 h1, #hero2 h1, #hero3 h2, #hero4 h1",{
+        y:120,
+        stagger: 0.2,
+      })
 }
 
-lodingAnimation()
+
+function cursorAnimation(){
+    document.addEventListener("mousemove",function(dets){
+        gsap.to("#crsr",{
+            left:dets.x,
+            top:dets.y
+        })
+    })
+}
+lodingAnimation();
+cursorAnimation();
+
+Shery.makeMagnet("#nav-part2 h4", {
+    ease: "cubic-bezier(0.23, 1, 0.320, 1)",
+});
+  
